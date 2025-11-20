@@ -1,0 +1,60 @@
+
++1
+Lines changed: 1 addition & 0 deletions
+Original file line number	Diff line number	Diff line change
+@@ -0,0 +1 @@
+.vscode/settings.json
+‎script.js‎
++30
+-1
+Lines changed: 30 additions & 1 deletion
+Original file line number	Diff line number	Diff line change
+@@ -58,13 +58,42 @@ function aboutBlank() {
+    const newWindow = window.open("about:blank", "_blank");
+    if (newWindow) {
+        newWindow.document.open();
+        newWindow.document.write(zoneFrame.contentDocument.documentElement.outerHTML);
+        const htmlContent = `
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                    }
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                    }
+                </style>
+            </head>
+            <body>
+                ${zoneFrame.contentDocument.documentElement.outerHTML}
+            </body>
+            </html>
+        `;
+        newWindow.document.write(htmlContent);
+        newWindow.document.close();
+    } else {
+        alert("Popup blocked! Allow popups and try again.");
+    }
+}
+
+function closeZone() {
+    zoneViewer.style.display = "none";
+    zoneFrame.src = "about:blank";
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're not receiving notifications from this thread.
